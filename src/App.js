@@ -2,6 +2,8 @@ import {React,useContext} from 'react';
 import Stage1 from './components/Stage1.component';
 import Stage2 from './components/Stage2.component';
 import { MyContext } from './context/MyProvider';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const App=()=>
@@ -17,6 +19,7 @@ const context = useContext(MyContext)
          context.state.stage===1 ? <Stage1/> : <Stage2/>
             }
         </div> 
+        <ToastContainer />
         </div>
     )
 }

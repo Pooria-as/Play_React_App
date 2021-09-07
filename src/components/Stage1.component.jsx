@@ -1,6 +1,7 @@
 import {React,useRef,useContext,useState} from 'react';
 import { Alert, Button , Form }  from "react-bootstrap"
 import {MyContext} from "../context/MyProvider"
+import { toast } from 'react-toastify';
 
 
 
@@ -94,6 +95,14 @@ const Stage1 =()=>
                         ))
                     }
                     </ul>
+
+
+                    <div className="action_button" 
+                    onClick={()=>context.Next()}
+                    >
+                    Next
+                    </div>
+
                 </div> 
 
 

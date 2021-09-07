@@ -1,4 +1,5 @@
 import React from 'react';
+import { toast } from 'react-toastify';
 
 const MyContext=React.createContext()
 
@@ -30,7 +31,21 @@ class MyProvider extends React.Component {
             this.setState({players:NewPlayer})
 
         }
-
+        nextHandler = ()=>
+        {
+            
+            if(this.state.players.length > 2)
+            {
+                console.log("move to stage 2");
+            }
+            else
+            {
+                toast.error("You most create 3 person at least", {
+                    position: toast.POSITION.TOP_LEFT,
+                    theme: "dark"
+                  });
+            }
+        }
 
 
     
@@ -42,7 +57,8 @@ class MyProvider extends React.Component {
                 value={{
                 state: this.state,
                 addPlayer:this.addPlayerHandler,
-                removePlayer:this.RemovePlayerHandler
+                removePlayer:this.RemovePlayerHandler,
+                Next:this.nextHandler
             }} >
                     {this.props.children}
                 </MyContext.Provider>
