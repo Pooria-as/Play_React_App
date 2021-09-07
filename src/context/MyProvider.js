@@ -36,8 +36,23 @@ class MyProvider extends React.Component {
             
             if(this.state.players.length > 2)
             {
-                console.log("move to stage 2");
+                
+
+                this.setState({
+                    stage:2
+                },()=>{
+                    setTimeout(()=>{
+                         this.LooserHandler()
+                    },2000)
+                })
+
+
+
+
+
+
             }
+
             else
             {
                 toast.error("You most create 3 person at least", {
@@ -45,6 +60,31 @@ class MyProvider extends React.Component {
                     theme: "dark"
                   });
             }
+        }
+
+
+        StartOverHandler=()=>
+        {
+            this.setState(
+                {
+                    stage:1,
+                    players:[],
+                    result:''
+                }
+            )
+        }
+
+
+
+        LooserHandler =()=>
+        {
+            let {players}=this.state
+            
+            this.setState(
+                {
+                    result:players[Math.floor(Math.random() * players.length)]
+                }
+            )
         }
 
 
@@ -58,7 +98,9 @@ class MyProvider extends React.Component {
                 state: this.state,
                 addPlayer:this.addPlayerHandler,
                 removePlayer:this.RemovePlayerHandler,
-                Next:this.nextHandler
+                Next:this.nextHandler,
+                StartOverHandler:this.StartOverHandler,
+                LooserHandler:this.LooserHandler
             }} >
                     {this.props.children}
                 </MyContext.Provider>
