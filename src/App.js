@@ -14,7 +14,7 @@ const context = useContext(MyContext)
         <div className="center-wrapper">
         <h1>Who pays the bill ?</h1>
          {
-         context.stage===1 ? <Stage1/> : <Stage2/>
+         context.state.stage===1 ? <Stage1/> : <Stage2/>
             }
         </div> 
         </div>
