@@ -49,10 +49,14 @@ const Stage1 =()=>
 
     return(
         <>
-          <Form onSubmit={handleSubmit} className='mt-4'>
+          <Form onSubmit={handleSubmit}>
             <Form.Group>
-            <Form.Control ref={PlayerValue}  type="text" placeholder='Enter Player Name' name="PlayerName" />
+            <Form.Control style={{
+                marginBottom:"2px"
+            }} ref={PlayerValue}  type="text" placeholder='Enter Player Name' name="PlayerName" />
+            
             </Form.Group>
+            
             
             {
                 error[1] 
